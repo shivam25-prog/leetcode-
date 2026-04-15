@@ -1,10 +1,11 @@
-// LeetCode-style solution in C (DFS)
+#include <stdio.h>
+#include <stdbool.h>
 
-void dfs(int** isConnected, int n, int* visited, int city) {
-    visited[city] = 1;
-    for (int neighbor = 0; neighbor < n; neighbor++) {
-        if (isConnected[city][neighbor] == 1 && !visited[neighbor]) {
-            dfs(isConnected, n, visited, neighbor);
+void dfs(int** isConnected, int n, int* visited, int i) {
+    visited[i] = 1;
+    for (int j = 0; j < n; j++) {
+        if (isConnected[i][j] == 1 && !visited[j]) {
+            dfs(isConnected, n, visited, j);
         }
     }
 }
